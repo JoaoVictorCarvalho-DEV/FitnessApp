@@ -1,10 +1,6 @@
 import 'package:myfitapp/routes.dart';
 import 'package:myfitapp/utils/app_colors.dart';
 import 'package:myfitapp/view/dashboard/dashboard_screen.dart';
-import 'package:myfitapp/view/login/login_screen.dart';
-import 'package:myfitapp/view/profile/complete_profile_screen.dart';
-import 'package:myfitapp/view/welcome/welcome_screen.dart';
-import 'package:myfitapp/view/your_goal/your_goal_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,4 +26,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 
