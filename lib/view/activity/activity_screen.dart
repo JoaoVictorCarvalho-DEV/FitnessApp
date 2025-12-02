@@ -1,6 +1,7 @@
 import 'package:myfitapp/utils/app_colors.dart';
 import 'package:myfitapp/view/activity/widgets/upcoming_workout_row.dart';
 import 'package:myfitapp/view/activity/widgets/what_train_row.dart';
+import 'package:myfitapp/view/activity/widgets/meus_treinos_row.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -300,6 +301,48 @@ class _ActivityScreenState extends State<ActivityScreen> {
                     itemBuilder: (context, index) {
                       var wObj = latestArr[index] as Map? ?? {};
                       return UpcomingWorkoutRow(wObj: wObj);
+                    },
+                  ),
+                  SizedBox(height: media.width * 0.05),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Meus treinos",
+                        style: TextStyle(
+                          color: AppColors.blackColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          print('Adicionar treino agora...');
+                        },
+                        child: Text(
+                          "Adicionar treino",
+                          style: TextStyle(
+                            color: AppColors.grayColor,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  ListView.builder(
+                    padding: EdgeInsets.zero,
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: whatArr.length,
+                    itemBuilder: (context, index) {
+                      var wObj = whatArr[index] as Map? ?? {};
+                      return InkWell(
+                        onTap: () {
+                          print('Levar para a área interna do treino');
+                        },
+                        child: MeusTreinosRow(wObj: wObj),
+                      );
                     },
                   ),
                   SizedBox(height: media.width * 0.05),
